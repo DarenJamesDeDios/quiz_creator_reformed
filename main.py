@@ -1,7 +1,7 @@
 #Planning to put the main menu here 
 #Where the user could make the choice of having to create the quiz or run the quiz  
 from quiz_create_questions import QuestionCreator
-from quiz_run_program import QuizGame
+from quiz_game import QuizGame
 import time
 from colorama import init, Fore, Style
 
