@@ -1,18 +1,21 @@
-#Modules imported
 import time
+from colorama import init, Fore, Style
+
+# Initialize colorama
+init(autoreset=True)
 
 filename = "quiz_questions.txt"
 
 def welcome_message():
-    print("\033[33m========\033[1mWelcome to Quiz Creator\033[0m\033[33m=========\033[0m")
+    print(Fore.YELLOW + "========" + Style.BRIGHT + "Welcome to Quiz Creator" + Style.RESET_ALL + Fore.YELLOW + "=========")
     time.sleep(2)
 
 def get_question():
-    print("\033[33mPlease enter your quiz question.\033[0m")
-    return input("\033[33mQ\033[0m: ")
+    print(Fore.YELLOW + "Please enter your quiz question.")
+    return input(Fore.YELLOW + "Q: ")
 
 def get_options():
-    print("\033[33mPlease input the 4 possible answers.\033[0m")
+    print(Fore.YELLOW + "Please input the 4 possible answers.")
     choice_a = input("For letter a: ")
     choice_b = input("For letter b: ")
     choice_c = input("For letter c: ")
@@ -23,13 +26,13 @@ def get_correct_answer():
     while True:
         answer = input("The correct answer? (a, b, c, or d): ").lower()
         if answer in ['a', 'b', 'c', 'd']:
-            print("\033[33mSaving the question and answer...\033[0m")
+            print(Fore.YELLOW + "Saving the question and answer...")
             time.sleep(3)
-            print("\033[32mDone!\033[0m")
+            print(Fore.GREEN + "Done!")
             time.sleep(1)
             return answer
         else:
-            print("\033[31mInvalid input, please choose only a, b, c, or d\033[0m")
+            print(Fore.RED + "Invalid input, please choose only a, b, c, or d")
             time.sleep(1)
 
 def save_to_file(question, choice_a, choice_b, choice_c, choice_d, correct):
@@ -44,17 +47,17 @@ def save_to_file(question, choice_a, choice_b, choice_c, choice_d, correct):
 
 def ask_continue():
     while True:
-        print("\033[33mDo you want to add another quiz question?\033[0m")
-        response = input("\033[32myes\033[0m or \033[31mno\033[0m?: ").lower()
+        print(Fore.YELLOW + "Do you want to add another quiz question?")
+        response = input(Fore.GREEN + "yes" + Style.RESET_ALL + " or " + Fore.RED + "no" + Style.RESET_ALL + "?: ").lower()
         if response == 'yes':
             return True
         elif response == 'no':
-            print("\033[33mExiting...\033[0m")
+            print(Fore.YELLOW + "Exiting...")
             time.sleep(3)
-            print("Your quiz questions are now \033[32msaved\033[0m.")
+            print("Your quiz questions are now " + Fore.GREEN + "saved" + Style.RESET_ALL + ".")
             return False
         else:
-            print("Only \033[32myes\033[0m or \033[31mno\033[0m answers are allowed, my friend.")
+            print("Only " + Fore.GREEN + "yes" + Style.RESET_ALL + " or " + Fore.RED + "no" + Style.RESET_ALL + " answers are allowed, my friend.")
             time.sleep(1)
 
 # Main program loop
@@ -69,4 +72,5 @@ def main():
             break
 
 # Start the program
-main()
+if __name__ == "__main__":
+    main()
