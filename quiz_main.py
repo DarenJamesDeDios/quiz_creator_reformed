@@ -7,15 +7,17 @@ from colorama import init, Fore, Style
 
 init(autoreset=True)
 
-def main():
-    while True:
+class QuizMain:
+    def __init__(self):
+        self.running = True
+
+    def display_menu(self):
         print(Fore.BLUE + Style.BRIGHT + "\n======= Main Menu =======")
         print(Fore.YELLOW + "1. Create Quiz Questions")
         print(Fore.GREEN + "2. Play the Quiz")
         print(Fore.RED + "3. Exit")
 
-        choice = input("Enter your choice (1/2/3): ").strip()
-
+    def handle_choice(self, choice):
         if choice == '1':
             creator = QuestionCreator()
             creator.run()
@@ -25,9 +27,16 @@ def main():
         elif choice == '3':
             print("Goodbye!")
             time.sleep(1)
-            break
+            self.running = False
         else:
             print(Fore.RED + "Invalid choice. Please select 1, 2, or 3.")
 
+    def run(self):
+        while self.running:
+            self.display_menu()
+            choice = input("Enter your choice (1/2/3): ").strip()
+            self.handle_choice(choice)
+
 if __name__ == "__main__":
-    main()
+    main = QuizMain()
+    main.run()
