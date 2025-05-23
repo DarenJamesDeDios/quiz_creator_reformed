@@ -34,3 +34,12 @@ Correct Answer: d
 
 ==================================================
 
+Q: How many years are in a century?
+a. 100 years
+b. 1000 years
+c. 10 years
+d. 99999999 years
+Correct Answer: a
+
+==================================================
+
