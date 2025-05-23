@@ -55,7 +55,7 @@ class QuestionCreator:
 
     def ask_continue(self):
         while True:
-            answer = input("Add another question? (yes/no): ").lower()
+            answer = input("Add another question? ("+ Fore.GREEN + "yes" + Fore.WHITE + "/" + Fore.RED + "no" + Fore.WHITE+ "): ").lower()
             if answer == 'yes':
                 return True
             elif answer == 'no':
